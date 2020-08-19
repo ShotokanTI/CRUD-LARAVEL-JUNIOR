@@ -21,6 +21,7 @@ Auth::routes();
 
 //Route::get('/homeAjax', 'contratoTela@index')->name('homeAjax');
 // //Auth::routes();
+//alteracao
 
 //Route::get('/contratoTela', 'contratoController@index')->name('contratoTela');
 
