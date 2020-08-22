@@ -64,7 +64,7 @@ class ContratoTela extends Controller
             'razao_social' =>   $request->get('razao_social'),
             'nome_fantasia' =>  $request->get('nome_fantasia'),
             'e-mail' => $request->get('e-mail'),
-            'in_User' =>    $request->get('in_User'),
+            'in_User' =>    json_encode($request->get('in_User')),
             'logomarca' =>  $request->get('logomarca'),
             'status' => $request->get('status'),
         ]);

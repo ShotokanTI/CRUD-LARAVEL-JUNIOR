@@ -3,7 +3,7 @@
         <div class="header-body text-center mb-7">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-6">
-                    <h1 class="text-white">{{ __('TESTE SUPERA') }}</h1>
+                    <h1 class="text-white">{{ __('TESTE ZIPP') }}</h1>
                 </div>
             </div>
         </div>

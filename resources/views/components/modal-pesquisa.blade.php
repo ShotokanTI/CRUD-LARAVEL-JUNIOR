@@ -16,6 +16,7 @@
             <div class="modal-body">
                 <table class="table-responsive table align-items-center">
                     <tr>
+                        <th>Deletar</th>
                         <th>ID</th>
                         <th>CNPJ</th>
                         <th>RAZAO_SOCIAL</th>
@@ -30,9 +31,9 @@
 
 
                         <td>
-                            <form action="{{ route('homeAjax.destroy', $item->id)}}" method="post">
+                            <form id="deleteForm" action="{{ route('homeAjax.destroy', $item->id)}}" method="post">
                                 @csrf @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Delete</button>
+                                <button id="btnDelete" value="{{$item->id}}" onclick="return pergunta()" class="btn btn-danger" type="submit">Deletar</button>
                             </form>
                         </td>
                         <td>{{$item->id}}</td>
@@ -52,8 +53,39 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    function pergunta(){
+        return confirm("deseja excluir este dado?")
+    }
+    $(document).ready(function() {
+        $('#deleteForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let id = $('#btnDelete').val();
+            let url = '{{ route("homeAjax.destroy", ":id") }}';
+            url = url.replace(':id', id);
+            $.ajax({
+                type:'DELETE',
+                url:url,
+                data:{_token: "{{ csrf_token() }}"},
+                success:function(response){
+                    console.log(response);
+                    alert('deletado')
+                    location.reload();
+
+
+                },
+                error:function(error){
+
+                }
+            })
+
+        })
+    })
+</script>

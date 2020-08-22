@@ -15,15 +15,20 @@ class Usuario extends Migration
     {
         Schema::create('usuario', function (Blueprint $usuario) {
             $usuario->increments('id')->unique();
-            $usuario->string('nome_fantasia')->unique();
-            $usuario->string('cpf')->unique();
-            $usuario->string('nome_usuario');
-            $usuario->foreign('nome_fantasia')->references('nome_fantasia')->on('contrato');
-            $usuario->rememberToken();
+            $usuario->char('nome');
+            $usuario->bigInteger('cpf')->unique()->unsigned();
+            $usuario->date('data_nascimento');
+            $usuario->bigInteger('telefone')->unsigned();
+            $usuario->string('endereco',40);
+            $usuario->char('estado',2);
+            $usuario->char('cidade',20);
             $usuario->timestamps();
         });
-    }
 
+    }
+    
+        
+    
     /**
      * Reverse the migrations.
      *

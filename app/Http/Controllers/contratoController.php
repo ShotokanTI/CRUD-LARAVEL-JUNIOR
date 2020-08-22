@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
-use App\contrato;
+use App\usuario;
+use App\estados;
+use App\cidades;
 use Illuminate\Http\Request;
 
 class contratoController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,25 +41,28 @@ class contratoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cnpj' => 'required|max:18',
-            'razao_social' => 'required',
-            'nome_fantasia' => 'required',
-            'email' => 'required',
-            'logomarca' => 'required',
-            'in_User' => 'required',
-            'status' => 'required',
+            'nome' => 'required',
+            'cpf' => 'required|max:11',
+            'data_nascimento' => 'required',
+            'telefone' => 'required',
+            'endereco' => 'required',
+            'estado' => 'required',
+            'role' => 'required',
+            'cidade' => 'required',
         ]);
-        $fileName = time() . '_' . $request->file('logomarca')->getClientOriginalName();
-        $request->file('logomarca')->move('public/logomarca', $fileName);
-        $contrato = new contrato([
-            'cnpj' => $request->get('cnpj'),
-            'razao_social' =>   $request->get('razao_social'),
-            'nome_fantasia' =>  $request->get('nome_fantasia'),
-            'email' => $request->get('email'),
-            'in_User' =>    $request->get('in_User'),
-            'logomarca' =>  $fileName,
-            'status' => $request->get('status'),
+
+        $contrato = new usuario([
+            'nome' => $request->get('nome'),
+            'cpf' =>   $request->get('cpf'),
+            'data_nascimento' =>  $request->get('data_nascimento'),
+            'telefone' => $request->get('telefone'),
+            'endereco' =>    $request->get('endereco'),
+            'estado' =>  $request->get('estado'),
+            'role' => $request->get('role'),
+            'cidade' => $request->get('cidade')
         ]);
+
+
 
         $contrato->save();
 
@@ -106,8 +103,8 @@ class contratoController extends Controller
 
         //     if ($buscar != '') {
 
-        if (!is_null($result = contrato::where($escolhido, $id)->get()->first())) {
-            $result = contrato::where($escolhido, $id)->get();
+        if (!is_null($result = usuario::where($escolhido, $id)->get()->first())) {
+            $result = usuario::where($escolhido, $id)->get();
             return view('components.search', compact('result'));
         } else {
 
@@ -129,14 +126,14 @@ class contratoController extends Controller
     }
     public function exibir()
     {
-        $contrato = contrato::all();
+        $contrato = usuario::all();
 
         return view('components.edit', compact('contrato'));
     }
 
     public function exibirDelete()
     {
-        $result = contrato::all();
+        $result = usuario::all();
 
         return view('components.modal-pesquisa', compact('result'));
     }
@@ -175,7 +172,7 @@ class contratoController extends Controller
 
         for ($i = 0; $i < count($colunas['id']); $i++) {
             foreach ($colunas as $coluna => $valor) {
-                contrato::where('id', $colunas['id'][$i])->update([$coluna => $valor[$i]]);
+                usuario::where('id', $colunas['id'][$i])->update([$coluna => $valor[$i]]);
             }
         }
     }
@@ -187,9 +184,23 @@ class contratoController extends Controller
      */
     public function destroy($id)
     {
-     
-     contrato::where('id',$id)->delete();
 
-        return redirect('/home')->with('status','Exclusão bem sucedida');
+        $contrato = usuario::where('id', $id)->delete();
+
+        // return redirect('/home')->with('status','Exclusão bem sucedida');
+        return $contrato;
+    }
+
+
+    public function backEstados()
+    {
+        $result = estados::all();
+
+        return $result;
+    }
+
+    public function backCidadesByEstado($idEstado){
+        $result = cidades::where('estado_id',$idEstado)->get();
+        return $result;
     }
 }

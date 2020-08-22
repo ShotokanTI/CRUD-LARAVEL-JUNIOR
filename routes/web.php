@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('home');
 });
 
 Auth::routes();
 
-//Route::get('/homeAjax', 'contratoTela@index')->name('homeAjax');
+//alteracoes gitdsfvadfa
+//dfsafdfs
+//Route::get('/homeAjax', 'srfwfrewfrcontratoTela@index')->name('homeAjax');
 // //Auth::routes();
 
 //Route::get('/contratoTela', 'contratoController@index')->name('contratoTela');
@@ -35,7 +37,8 @@ Route::get('home', 'contratoController@index')->name('home');
 Route::post('homeAjax/exibir', 'contratoController@exibir')->name('homeAjax/exibir');
 Route::post('homeAjax/exibirDelete','contratoController@exibirDelete')->name('homeAjax/exibirDelete');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+Route::get('backEstados','contratoController@backEstados')->name('backEstados');
+Route::get('backCidades/{id}','contratoController@backCidadesByEstado')->name('backCidades');
 Route::post('search', 'contratoController@show')->name('search');
 Route::post('homeAjax/updateTable','contratoController@updateTable')->name('homeAjax/updateTable');
 Route::resource('homeAjax', 'contratoController');
