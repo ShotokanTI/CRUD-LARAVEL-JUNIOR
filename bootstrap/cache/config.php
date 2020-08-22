@@ -4,13 +4,13 @@
     'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost:8000',
+    'url' => 'http://localhost',
     'asset_url' => NULL,
     'timezone' => 'UTC',
     'locale' => 'pt_BR',
     'fallback_locale' => 'pt_BR',
     'faker_locale' => 'pt_BR',
-    'key' => 'base64:tHwoxKyzf9hnOnbD0PiTiL43uUSKi/j9ZWM86TGRXKA=',
+    'key' => 'base64:aoxpZdOII83+M7braYNlDCPmI5i473KkvUDKWBJf4tc=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -181,7 +181,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -347,13 +347,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\app',
+        'root' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\app/public',
-        'url' => 'http://localhost:8000/storage',
+        'root' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -369,7 +369,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\public\\storage' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\app/public',
+      'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\public\\storage' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -403,13 +403,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -459,7 +459,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -471,11 +471,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.gmail.com',
-        'port' => '587',
-        'encryption' => 'tls',
-        'username' => 'opencartnovo@gmail.com',
-        'password' => 'xpzobxabqmbbkdyn',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -508,7 +508,7 @@
     ),
     'from' => 
     array (
-      'address' => 'opencartnovo@gmail.com',
+      'address' => NULL,
       'name' => 'Laravel',
     ),
     'markdown' => 
@@ -516,7 +516,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -595,7 +595,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -615,9 +615,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\resources\\views',
+      0 => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\Matheus\\Desktop\\LaravelSupera\\SuperaTeste\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\Matheus\\Desktop\\backupteste\\CRUD-TESTE\\storage\\framework\\views',
   ),
   'flare' => 
   array (
